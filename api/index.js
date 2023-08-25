@@ -11,7 +11,7 @@ dotenv.config();
 const connect = async () => {
 	try {
 		await mongoose.connect(process.env.MONGO);
-		console.log("connecteyo mongoose!");
+		console.log("connecte to mongoose!");
 	} catch (error) {
 		throw error;
 	}
@@ -32,8 +32,9 @@ app.use("/api/rooms", roomsRoute);
 
 
 app.get("/", (req, res) => {
-	res.send("The first websitet of mine");
+	res.send("The first websitet of ");
 });
 app.listen(8800, () => {
+	connect()
 	console.log("connected to backend");
 });
