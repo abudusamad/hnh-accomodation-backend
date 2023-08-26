@@ -1,48 +1,52 @@
-import mongoose, { Schema } from "mongoose";
-const { Schema } = mongoose;
-
-const HostelSchema = new mongoose.Schema({
+import mongoose from "mongoose";
+const HotelSchema = new mongoose.Schema({
 	name: {
 		type: String,
-		require: true,
+		required: true,
+	},
+	type: {
+		type: String,
+		required: true,
+	},
+	city: {
+		type: String,
+		required: true,
 	},
 	address: {
 		type: String,
-		require: true,
+		required: true,
+	},
+	distance: {
+		type: String,
+		required: true,
+	},
+	photos: {
+		type: [String],
+	},
+	title: {
+		type: String,
+		required: true,
+	},
+	desc: {
+		type: String,
+		required: true,
 	},
 	rating: {
 		type: Number,
 		min: 0,
 		max: 5,
 	},
-
-	descriptions: {
-		type: String,
-		require: true,
-	},
-	city: {
-		type: String,
-		require: true,
-	},
-	photos: {
-		type: [String],
-		require: true,
-	},
 	rooms: {
 		type: [String],
 	},
-	location: {
-		type: String,
-		require: true,
-	},
-	price: {
+	cheapestPrice: {
 		type: Number,
-		require: true,
+		required: true,
 	},
-	features: {
+	featured: {
 		type: Boolean,
 		default: false,
 	},
 });
 
-export default mongoose.model("Hostel", HostelSchema);
+export default mongoose.model("Hotel", HotelSchema);
